@@ -14,29 +14,34 @@ public class StudentAction {
     @Resource
     private StudentBo bo;
 
-    @RequestMapping(value = "/student", method = RequestMethod.POST)
+    @PostMapping("/student")
+    // @RequestMapping(value = "/student", method = RequestMethod.POST)
     public @ResponseBody Message save(@RequestBody StudentForShow student){
         return bo.doSave(student);
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.GET)
+    @GetMapping("/student")
+    // @RequestMapping(value = "/student", method = RequestMethod.GET)
     public @ResponseBody
     List<StudentForShow> listAll(){
         return bo.queryAll();
     }
 
-    @RequestMapping(value = "/student/{id}", method = RequestMethod.GET)
+    @GetMapping("/student/{id}")
+    // @RequestMapping(value = "/student/{id}", method = RequestMethod.GET)
     public @ResponseBody
     StudentForShow getOne(@PathVariable int id){
         return bo.queryById(id);
     }
 
-    @RequestMapping(value = "/student/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/student/{id}")
+    // @RequestMapping(value = "/student/{id}", method = RequestMethod.DELETE)
     public @ResponseBody Message delete(@PathVariable int id){
         return bo.doDelete(id);
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.PUT)
+    @PutMapping("/student")
+    // @RequestMapping(value = "/student", method = RequestMethod.PUT)
     public @ResponseBody Message update(@RequestBody StudentForShow student){
         return bo.doUpdate(student);
     }
